@@ -43,6 +43,7 @@ const MainText = styled('div')({
 
 // This is our first functional based component!
 export const Home = (props: Props) => {
+    const myAuth = localStorage.getItem('auth')
 
     // return is always HTML & it can have ONLY 1 parent div 
     return (
@@ -51,7 +52,7 @@ export const Home = (props: Props) => {
             <Main>
                 <MainText>
                     <Typography variant='h3'> { props.title }</Typography>
-                    <Button sx={{ marginTop: '10px'}} component={Link} to={"/shop"} variant='contained'>Make Your Scooter Unique Here!</Button>
+                    <Button sx={{ marginTop: '10px'}} component={Link} to={myAuth === 'true' ? "/shop" : "/auth"} variant='contained'>Make Your Scooter Unique Here!</Button>
                 </MainText>
             </Main>
         </Root>
